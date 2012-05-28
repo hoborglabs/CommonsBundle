@@ -1,0 +1,61 @@
+User:
+  type: entity
+  table: user
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    login:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+    nameFirst:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+      column: name_first
+    nameLast:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+      column: name_last
+    nameMiddle:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+      column: name_middle
+    nameTitle:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+      column: name_title
+    nickname:
+      type: string
+      length: 45
+      fixed: false
+      nullable: true
+    dob:
+      type: integer
+      unsigned: false
+      nullable: true
+    resetPasswordHash:
+      type: string
+      length: 64
+      fixed: false
+      nullable: true
+      column: reset_password_hash
+    password:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+  lifecycleCallbacks: {  }

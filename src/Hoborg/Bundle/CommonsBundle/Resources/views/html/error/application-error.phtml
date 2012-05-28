@@ -1,0 +1,65 @@
+<h1>Application Error :(</h1>
+<h2><?php echo $this->message ?> - <?php echo $this->exception->getMessage(); ?></h2>
+
+<?php if ('development' == APPLICATION_ENV): ?>
+	<div class="hDevConsole">
+        <h3>Exception information (<?php echo get_class($this->exception); ?>):</h3>
+        <table class="exception">
+        	<tr>
+        		<th>Message:</th>
+        		<td><?php echo $this->exception->getMessage(); ?></td>
+        	</tr>
+        	<tr>
+        		<th>File:</th>
+        		<td><?php echo $this->exception->getFile(); ?></td>
+        	</tr>
+        	<tr>
+        		<th>Line:</th>
+        		<td><?php echo $this->exception->getLine(); ?></td>
+        	</tr>
+        	<tr>
+        		<th>Code:</th>
+        		<td><?php echo $this->exception->getCode(); ?></td>
+        	</tr>
+        </table>
+
+        <h3>Request Parameters:</h3>
+        <table class="parameters">
+        	<?php foreach($this->request->getParams() as $key => $value): ?>
+        	<tr>
+        		<th><?php echo $key; ?></th>
+        		<td><?php echo $value; ?></td>
+        	</tr>
+        	<?php endforeach; ?>
+        </table>
+
+        <h3>Stack trace:</h3>
+        <table class="stackTrace">
+        <?php foreach ($this->exception->getTrace() as $num => $line): ?>
+        	<tr>
+        		<td><?php echo ($num+1); ?></td>
+        		<td>File:</td>
+        		<td><?php echo $line['file']; ?> (<?php echo $line['line']; ?>)</td>
+        	</tr>
+        	<tr class="details">
+        		<td colspan="3">
+        			<?php
+        			$file = file($line['file']);
+        			$begin = ($line['line'] > 5) ? $line['line'] - 5 : 0;
+        			$end = ($line['line'] > count($file) - 5) ? count($file) : $line['line'] +5;
+        			for ($i = $begin; $i < $end; $i++) {
+        			    if (($i+1) == $line['line']) {
+        			        echo '<pre style="margin: 2px 0px; background-color: #CDCDCD;">';
+        			    }
+        			    else {
+        			        echo '<pre style="margin: 1px 0px;">';
+        			    }
+        			    echo ($i+1) . '   ' . $file[$i] . '</pre>';
+        			}
+        			?>
+        		</td>
+        	</tr>
+        <?php endforeach;?>
+        </table>
+	</div>
+<?php endif ?>

@@ -1,0 +1,35 @@
+Session:
+  type: entity
+  table: session
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    savePath:
+      type: string
+      length: 64
+      fixed: false
+      nullable: false
+      column: save_path
+    sessionData:
+      type: text
+      nullable: false
+      column: session_data
+    lifetime:
+      type: integer
+      unsigned: false
+      nullable: false
+    modified:
+      type: integer
+      unsigned: false
+      nullable: false
+    name:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+  lifecycleCallbacks: {  }

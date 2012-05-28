@@ -1,0 +1,12 @@
+
+services:
+    hoborg.cmns.identity:
+        class: Hoborg\Bundle\CommonsBundle\Service\Identity
+        arguments:
+            - @hoborg.cmns.mapper_factory
+
+    hoborg.cmns.mapper_factory:
+        class: Hoborg\Bundle\CommonsBundle\Mapper\Factory
+        arguments:
+            - @doctrine
+            - %hoborg.cmns.identity.connection_name%

@@ -1,0 +1,27 @@
+{
+	"name": "hoborg/ContentService",
+	"description": "Content Service",
+	"version": "1.0.0",
+	"config": {
+		"vendor-dir": "vendors"
+	},
+	"authors": [
+		{
+			"name": "Wojtek Oledzki",
+			"email": "wojtek@hoborglabs.com",
+			"homepage": "http://hoborglabs.com"
+		}
+	],
+
+	"require": {
+		"symfony/symfony": "2.0.9",
+		"symfony/templating": "2.0.9",
+		"monolog/monolog": "1.0.2",
+		"doctrine/common": "2.1.4",
+		"doctrine/dbal": "2.1.5",
+		"twig/twig": "1.4.0",
+		"behat/behat": "2.3.5",
+		"behat/gherkin": "2.1.1",
+		"behat/behat-bundle": "1.0.0"
+	}
+}

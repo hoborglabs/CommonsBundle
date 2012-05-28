@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./tests/unit/bootstrap-cmns.php" 
+	colors="true"
+	strict="true"
+	backupGlobals="false"
+	backupStaticAttributes="false"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	processIsolation="false"
+	stopOnFailure="false"
+	syntaxCheck="false"
+>
+	<testsuites>
+		<testsuite name="Hoborg_Commons">
+			<directory>./tests/unit/Hoborg/Test</directory>
+			<directory>./src/Hoborg/Bundle/*/Tests</directory>
+		</testsuite>
+	</testsuites>
+
+</phpunit>

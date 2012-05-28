@@ -1,0 +1,12 @@
+# IDE ignore files.
+.buildpath
+.project
+.settings/
+
+build.properties
+
+# Dependencies
+composer.lock
+composer.phar
+/vendors
+
