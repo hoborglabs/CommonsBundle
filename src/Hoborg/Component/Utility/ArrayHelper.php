@@ -72,6 +72,10 @@ class ArrayHelper {
 	public static function getValueByBestMatchingKey(array $config, $key) {
 		$keys = explode('.', $key, 2);
 
+		if (!isset($config[$keys[0]])) {
+			return $config;
+		}
+
 		if ( !is_array($config[$keys[0]]) ) {
 			return $config;
 		}

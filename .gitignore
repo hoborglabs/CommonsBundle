@@ -3,7 +3,10 @@
 .project
 .settings/
 
+
 build.properties
+/build
+/logs
 
 # Dependencies
 composer.lock

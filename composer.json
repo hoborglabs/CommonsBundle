@@ -2,6 +2,7 @@
 	"name": "hoborg/ContentService",
 	"description": "Content Service",
 	"version": "1.0.0",
+	"symfony": "2.0.9",
 	"config": {
 		"vendor-dir": "vendors"
 	},
@@ -14,12 +15,23 @@
 	],
 
 	"require": {
-		"symfony/symfony": "2.0.9",
-		"symfony/templating": "2.0.9",
-		"monolog/monolog": "1.0.2",
 		"doctrine/common": "2.1.4",
 		"doctrine/dbal": "2.1.5",
-		"twig/twig": "1.4.0",
+		"symfony/http-foundation": "2.0.9",
+		"symfony/http-kernel": "2.0.9",
+		"symfony/routing": "2.0.9",
+		"symfony/templating": "2.0.9",
+		"symfony/framework-bundle": "2.0.9",
+		"symfony/finder": "2.0.9",
+		"symfony/yaml": "2.0.9",
+		"symfony/translation": "2.0.9",
+		"symfony/event-dispatcher": "2.0.9",
+		"symfony/dependency-injection": "2.0.9",
+		"symfony/config": "2.0.9",
+		"symfony/console": "2.0.9",
+		"symfony/class-loader": "2.0.9",
+		"symfony/doctrine-bridge": "2.0.9",
+		"monolog/monolog": "1.0.2",
 		"behat/behat": "2.3.5",
 		"behat/gherkin": "2.1.1",
 		"behat/behat-bundle": "1.0.0"

@@ -4,8 +4,10 @@
 
 	<property name="dir.base" location="." />
 	<property name="dir.src" location="src/" />
+	<property name="dir.tst" location="tests/" />
 	<property name="dir.app" location="application/" />
 	<property name="dir.logs" value="${dir.base}/logs/" />
+	<property name="dir.build" value="${dir.base}/build/" />
 
 	<!-- Commands aliases -->
 	<property name="cmd.phpunit" value="phpunit" />
@@ -14,10 +16,11 @@
 	<property name="cmd.phpcs" value="phpcs" />
 	<property name="cmd.pdepend" value="pdepend" />
 	<property name="cmd.phar" value="phar" />
+	<property name="cmd.composer" value="${dir.base}/composer.phar" />
 
 	<target name="test"
 		description="Run project tests"
-		depends="clean, prepare, phpunit, behat"
+		depends="clean, prepare, validate, phpunit, behat"
 	/>
 
 	<target name="code-analysis"
@@ -29,6 +32,9 @@
 	<target name="prepare"
 		description="Prepares directory structure for the build"
 	>
+		<!-- Make folders -->
+		<mkdir dir="${dir.base}/vendors" />
+
 		<mkdir dir="${dir.build}" />
 		<mkdir dir="${dir.build}/phar" />
 		<mkdir dir="${dir.build}/src" />
@@ -39,6 +45,25 @@
 		<mkdir dir="${dir.logs}/phpcpd" />
 		<mkdir dir="${dir.logs}/phpdepend" />
 		<mkdir dir="${dir.logs}/phpunit" />
+		
+		<available file="${dir.base}/composer.phar" property="composer.present"/>
+	</target>
+	
+	<target name="validate" depends="install-composer"
+		description="Validates project."
+	>
+		<!-- get dependencies -->
+		<exec executable="php" failonerror="true">
+			<arg line="${cmd.composer}" />
+			<arg line="update" />
+		</exec>
+	</target>
+	
+	<target name="install-composer" unless="composer.present">
+		<exec executable="bash">
+			<arg value="-c" />
+			<arg value="curl -s http://getcomposer.org/installer | php" />
+		</exec>
 	</target>
 
 	<target name="phpunit"
@@ -55,7 +80,7 @@
 	</target>
 	
 	<target name="behat">
-		<exec executable="${cmd.console}">
+		<exec executable="${dir.tst}/console">
 			<arg line="-e=test" />
 			<arg line="behat" />
 			<arg line="@CommonsBundle" />

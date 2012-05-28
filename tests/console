@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendors/autoload.php';
+
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+$loader = new UniversalClassLoader();
+$loader->registerNamespaces(array(
+    'Hoborg\\Test' => __DIR__,
+    'Hoborg' => __DIR__ . '/../../src',
+));
+$loader->register();
+
+$input = new ArgvInput(); 
+$env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'test');
+$debug = !$input->hasParameterOption(array('--no-debug', ''));
+
+$kernel = new Hoborg\ContentService\Kernel($env, $debug);
+$kernel->setHostDir(__DIR__ . '/../../');
+$application = new Application($kernel);
+$application->run();

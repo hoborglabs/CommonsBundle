@@ -16,6 +16,6 @@ class NullSpec {
 			'moveCmd',
 			'mergeCmd',
 			'catCmd',
-		)
+		);
 	}
 }
