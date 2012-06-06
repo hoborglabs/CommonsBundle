@@ -1,8 +1,7 @@
 {
-	"name": "hoborg/ContentService",
-	"description": "Content Service",
+	"name": "hoborglabs/commons-bundle",
+	"description": "Commons bundle",
 	"version": "1.0.0",
-	"symfony": "2.0.9",
 	"config": {
 		"vendor-dir": "vendors"
 	},
