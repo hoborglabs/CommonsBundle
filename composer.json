@@ -25,5 +25,10 @@
 		"behat/behat": "2.3.5",
 		"behat/gherkin": "2.1.1",
 		"behat/behat-bundle": "1.0.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"Hoborg\\Bundle\\CommonsBundle": "src/"
+		}
 	}
 }
