@@ -2,6 +2,7 @@
 	"name": "hoborglabs/commons-bundle",
 	"description": "Commons bundle",
 	"version": "1.0.0",
+	"license": "MIT",
 	"config": {
 		"vendor-dir": "vendors"
 	},
@@ -19,9 +20,9 @@
 		"doctrine/doctrine-bundle": "dev-master",
 
 		"symfony/symfony": ">=2.0.0",
-		"monolog/monolog": "1.0.2",
+		"monolog/monolog": "1.0.2"
 	},
-	require-dev: {
+	"require-dev": {
 		"behat/behat": "2.3.5",
 		"behat/gherkin": "2.1.1",
 		"behat/behat-bundle": "1.0.0"
