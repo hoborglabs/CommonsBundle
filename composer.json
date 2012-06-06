@@ -1,7 +1,6 @@
 {
 	"name": "hoborglabs/commons-bundle",
 	"description": "Commons bundle",
-	"version": "1.0.0",
 	"license": "MIT",
 	"config": {
 		"vendor-dir": "vendors"
