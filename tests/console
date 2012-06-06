@@ -2,6 +2,7 @@
 <?php
 
 require_once __DIR__ . '/../vendors/autoload.php';
+require_once __DIR__ . '/Kernel.php';
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
@@ -18,7 +19,7 @@ $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'test');
 $debug = !$input->hasParameterOption(array('--no-debug', ''));
 
-$kernel = new Hoborg\ContentService\Kernel($env, $debug);
+$kernel = new Hoborg\Commons\Kernel($env, $debug);
 $kernel->setHostDir(__DIR__ . '/../../');
 $application = new Application($kernel);
 $application->run();
