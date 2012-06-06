@@ -13,6 +13,7 @@ class Configuration implements ConfigurationInterface {
 
 		$rootNode
 			->children()
+				->scalarNode('identity')->defaultValue(false)->end()
 				->scalarNode('connection_name')->defaultValue('hoborg_cmns_identity')->end()
 			->end();
 

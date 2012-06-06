@@ -19,8 +19,10 @@ class CommonsExtension extends Extension {
 		$container->setParameter('hoborg.cmns.identity.connection_name', $config['connection_name']);
 
 		// only load default services and parameters once
-		$loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-		$loader->load('services.yml');
+		if (!empty($config['identity'])) {
+			$loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+			$loader->load('services.yml');
+		}
 	}
 
 }
