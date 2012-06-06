@@ -7,6 +7,7 @@
 build.properties
 /build
 /logs
+/tests/cache
 
 # Dependencies
 composer.lock

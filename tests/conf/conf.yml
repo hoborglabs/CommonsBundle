@@ -1,0 +1,55 @@
+imports:
+  - { resource: parameters.ini }
+
+framework:
+  secret: %framework.secret%
+  charset: %framework.charset%
+  csrf_protection: true
+  form: true
+
+  router:
+    resource: routing.yml
+    http_port: 80
+    https_port: 443
+
+  validation: { enable_annotations: true }
+
+#  templating: 
+#    engines: ['twig']  #assets_version: SomeVersionScheme
+
+  session:
+    default_locale: %framework.locale%
+    auto_start:     true
+
+doctrine:
+  dbal:
+    default_connection: hoborg_cmns_identity
+    connections:
+      hoborg_cmns_identity:
+        driver:   %db.hoborg.identity.driver%
+        host:     %db.hoborg.identity.host%
+        port:     %db.hoborg.identity.port%
+        dbname:   %db.hoborg.identity.name%
+        user:     %db.hoborg.identity.user%
+        password: %db.hoborg.identity.password%
+        charset:  UTF8
+
+  
+phabric:
+  connection_name: default
+  entities:
+    - id: User
+      tableName: 'user'
+      entityName: 'User'
+      primaryKey: 'id'
+      nameCol: login
+#      nameTransformations:
+#        - Id: id
+#        - Login: login
+#        - First Name: name_first
+#        - Last Name: name_last
+#        - Password: password
+#      dataTransformations:
+#        - id: UNIQUEID
+#        - password: MD5
+
